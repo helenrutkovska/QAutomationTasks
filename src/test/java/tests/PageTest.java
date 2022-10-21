@@ -19,7 +19,6 @@ public class PageTest {
     public void openMyWebsite() throws Exception {
 
         driver.get("https://store.steampowered.com");
-        Thread.sleep(3000);
         String actualTitle = driver.getTitle();
         String expectedTitle = "Welcome to Steam";
         Assert.assertEquals(actualTitle, expectedTitle);
@@ -39,7 +38,7 @@ public class PageTest {
         String actualTitleAP = driver.getTitle();
         String expectedTitleAP = "Steam, The Ultimate Online Game Platform";
         Assert.assertEquals(actualTitleAP, expectedTitleAP);
-        Assert.assertTrue(testAboutPage.getOnlinePlayers() > testAboutPage.getInGamePlayers(),"Number of in-game players is less than number of players online");
+        Assert.assertTrue(testAboutPage.getOnlinePlayers() > testAboutPage.getInGamePlayers(), "Number of in-game players is less than number of players online");
 
         testAboutPage.clickMenuStore();
         String actualTitle = driver.getTitle();
@@ -47,11 +46,9 @@ public class PageTest {
         Assert.assertEquals(actualTitle, expectedTitle);
     }
 
-
     @AfterMethod
-    public void afterMethod(){
+    public void afterMethod() {
         driver.close();
         driver.quit();
     }
-
 }
